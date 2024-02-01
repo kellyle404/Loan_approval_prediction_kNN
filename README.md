@@ -1,2 +1,17 @@
-# project2
-knn classifier
+# Loan approval prediction using k-Nearest-Neighbour model
+
+## Objectives:
+1. **Data wrangling**: Undertake thorough data wrangling processes to ensure data quality and prepare it for further analysis.
+2. **Predictive modelling**: Construct and implement a K-Nearest Neighbours (KNN) model to predict loan approval outcomes based on each applicant's attributes.
+3. **Feature engineering** Apply simple linear regression to assess the relevancy of predictor variables in order to enhance the predictive capabilities of the KNN model.
+
+## Scope
+The dataset can be accessed [here](https://drive.google.com/file/d/1LIvIdqdHDFEGnfzIgEh4L6GFirzsE3US/view?usp=sharing). It encompasses information from 598 loan applications, covering variables like Gender, Marital Status, Dependents, Education, Self-Employed status, Applicant Income, Coapplicant Income, Loan Amount, Loan Amount Term, Credit History, and Property Area.
+
+## Inquiry questions
+* How do different factors such as credit history, marital status, and income contribute to loan approval?
+* What is the accuracy of the custom-built KNN model in predicting loan approval status?
+* How could the model be improved through feature engineering?
+
+## Project outline
+The project begins with importing necessary libraries and loading the loan dataset for analysis (Section 2). Subsequently, Section 3 analyses the dataset, covering descriptive statistics, handling missing values, and ensuring data integrity. Section 4 is dedicated to constructing the K-nearest-neighbour model. Section 5 evaluates the accuracy of the constructed model while Section 6 further explores a simple feature engineering approach using simple linear regression to refine the model.
