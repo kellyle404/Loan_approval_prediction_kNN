@@ -13,5 +13,9 @@ The dataset can be accessed [here](https://drive.google.com/file/d/1LIvIdqdHDFEG
 * What is the accuracy of the custom-built KNN model in predicting loan approval status?
 * How could the model be improved through feature engineering?
 
-## Project outline
-The project begins with importing necessary libraries and loading the loan dataset for analysis (Section 2). Subsequently, Section 3 analyses the dataset, covering descriptive statistics, handling missing values, and ensuring data integrity. Section 4 is dedicated to constructing the K-nearest-neighbour model. Section 5 evaluates the accuracy of the constructed model while Section 6 further explores a simple feature engineering approach using simple linear regression to refine the model.
+## Files
+| File                      | Description                        |
+| ------------------------- | ---------------------------------- |
+| LoanApprovalPrediction.csv | Dataset of loan applicants          |
+| Loan_Approval_kNN.ipynb   | Jupyter notebook                   |
+| Loan_Approval_kNN.html    | HTML version of the notebook       |
