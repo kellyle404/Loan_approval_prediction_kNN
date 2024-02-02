@@ -14,8 +14,9 @@ The dataset can be accessed [here](https://drive.google.com/file/d/1LIvIdqdHDFEG
 * How could the model be improved through feature engineering?
 
 ## Files
-| File                      | Description                        |
-| ------------------------- | ---------------------------------- |
-| LoanApprovalPrediction.csv | Dataset of loan applicants          |
-| Loan_Approval_kNN.ipynb   | Jupyter notebook                   |
-| Loan_Approval_kNN.html    | HTML version of the notebook       |
+|File|Description|
+|-|-|
+|LoanApprovalPrediction.csv|Dataset of loan applicants|
+|Loan_Approval_kNN.ipynb|Jupyter notebook|
+|Loan_Approval_kNN.html|HTML version of the notebook|
+|Images|Folder containing images attached in the notebook|
