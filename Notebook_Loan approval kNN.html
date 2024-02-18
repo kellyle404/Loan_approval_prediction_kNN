@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Loan_Approval_kNN</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Notebook_Loan approval kNN</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -56,20 +56,23 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
   </style>
 <style type="text/css">
     /* Fonts */
-@import url('http://fonts.googleapis.com/css?family=Inter');
-@import url('http://fonts.googleapis.com/css?family=DM+Mono');
+@import url('http://fonts.googleapis.com/css?family=JetBrains+Mono');
+@import url('http://fonts.googleapis.com/css?family=Noto+Sans+Display');
+@import url('http://fonts.googleapis.com/css?family=Figtree');
 
 :root {
-  --main-font: 'Product Sans', sans-serif;
+  --main-font: 'Figtree', sans-serif;
+  --title-font: 'Figtree', sans-serif;
   --code-font: 'JetBrains Mono Medium', monospace;
 }
 
 /* -------------------- HEADERS -------------------- */
 
 h1 {
-  font-family: var(--main-font);
-  font-weight: bold !important;
+  font-family: var(--title-font);
   font-size: 60px !important;
+  font-optical-sizing: auto;
+  font-weight: 1000 !important;
   line-height: 30px;
   margin-top: 3%;
   padding-bottom: 5px;
@@ -106,6 +109,7 @@ h3 {
 ul, ol, p, a {
   font-family: var(--main-font);
   font-size: 15px;
+  font-weight: 550 !important;
   line-height: 22px;
 }
 
@@ -129,7 +133,14 @@ a {
   margin-bottom: 10px;
 }
 
+/* Codes */
 
+code {
+  font-family: var(--code-font) !important; 
+  font-weight: 400 !important;
+  font-size: 13px !important;
+  color: #7c0000 !important;
+}
 
 
 
@@ -137,9 +148,11 @@ a {
 
 .jp-RenderedText, .jp-OutputArea-output, .cm-editor.cm-s-jupyter, .jp-RenderedText.jp-OutputArea-output, .jp-OutputPrompt.jp-OutputArea-prompt, .jp-Cell-outputWrapper, .jp-OutputArea-child {
   font-family: var(--code-font);
+  font-weight: medium !important;
   font-size: 13px !important;
   line-height: 18px !important;
 }
+
 
 .highlight.hl-ipython3 {
   overflow-x: hidden;
@@ -7807,7 +7820,7 @@ a.anchor-link {
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">'dark'</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.precision'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.float_format'</span><span class="p">,</span> <span class="s1">'</span><span class="si">{:.2f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">precision</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">suppress</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_rows'</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_columns'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
@@ -7835,7 +7848,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'LoanApprovalPrediction.csv'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'CSV_Loan data.csv'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -9493,7 +9506,8 @@ Name: 5, dtype: object</pre>
 <span class="sd">        &gt; train_set: Table of training instances</span>
 <span class="sd">        &gt; k: Number of nearest neighbors to consider for the k-nearest neighbors model</span>
 <span class="sd">    Output:</span>
-<span class="sd">        &gt; Print accuracy percentage and return a table with prediction and correctness information for the first 5 instances in the test set</span>
+<span class="sd">        &gt; Accuracy percentage and return the result table with</span>
+<span class="sd">          information for the first 2 instances in the test set</span>
 <span class="sd">    '''</span>
 
     <span class="n">test_accuracy_table</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
